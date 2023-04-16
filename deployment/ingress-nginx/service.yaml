@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: temp-service
+  namespace: study-ingress
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: temp-app
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: category-service
+  namespace: study-ingress
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: category-app

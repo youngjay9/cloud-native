@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: temp-app
+  namespace: study-ingress
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: temp-app
+  template:
+    metadata:
+      labels:
+        app: temp-app
+    spec:
+      containers:
+      - name: temp-app
+        image: youngjay9/temp-service:2.0
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: regcred
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: category-app
+  namespace: study-ingress
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: category-app
+  template:
+    metadata:
+      labels:
+        app: category-app
+    spec:
+      containers:
+      - name: category-app
+        image: youngjay9/category-service:1.0
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: regcred

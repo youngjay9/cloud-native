@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO" monitorInterval="30">
+  <properties>
+    <property name="LOG_HOME">fet_ins_tpe_logs</property>
+    <property name="SERVER_NAME">INS</property>
+    <Property name="COMMON_PATTERN">%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %c:%L - %msg%n</Property>
+  </properties>
+  <Appenders>
+    <Console name="CONSOLE" target="SYSTEM_OUT">
+      <PatternLayout pattern="${COMMON_PATTERN}" charset="UTF-8"/>
+    </Console>
+    <RollingRandomAccessFile name="INS" fileName="${LOG_HOME}/${SERVER_NAME}.log"
+      filePattern="${LOG_HOME}/$${date:yyyy-MM}/${SERVER_NAME}-%d{yyyy-MM-dd-HH}.log.gz">
+      <PatternLayout pattern="${COMMON_PATTERN}" charset="UTF-8"/>
+      <Policies>
+        <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+      </Policies>
+    </RollingRandomAccessFile>
+  </Appenders>
+  <Loggers>
+    <asyncRoot level="info" includeLocation="true">
+      <AppenderRef ref="INS"/>
+      <AppenderRef ref="CONSOLE"/>
+    </asyncRoot>
+    <AsyncLogger name="org.springframework.web.servlet.DispatcherServlet" level="ERROR"
+      includeLocation="true">
+      <AppenderRef ref="CONSOLE"/>
+    </AsyncLogger>
+    <AsyncLogger name="org.hibernate.orm.deprecation" level="WARN">
+      <RegexFilter regex=".*HHH90000022.*" onMatch="DENY" onMismatch="NEUTRAL"/>
+    </AsyncLogger>
+  </Loggers>
+</Configuration>
