@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: temp-app
-        image: youngjay9/temp-service:2.0
+        image: youngjay9/temp-service:1.1
         ports:
         - containerPort: 8080
       imagePullSecrets:
