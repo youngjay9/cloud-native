@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tipc-backend
+  namespace: tipc
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: tipc-backend
+  template:
+    metadata:
+      labels:
+        app: tipc-backend
+    spec:
+      containers:
+      - name: tipc-backend
+        image: youngjay9/tipc:0.0.8-SNAPSHOT
+        ports:
+        - containerPort: 8083
+      imagePullSecrets:
+      - name: regcred
