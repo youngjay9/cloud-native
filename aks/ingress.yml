@@ -5,25 +5,25 @@ metadata:
   namespace: tipc
   annotations:
     kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   rules:
     - http:
         paths:
-          - path: /tipc-backend(/|$)(.*)
-            pathType: ImplementationSpecific
+          - path: /tipc
+            pathType: Prefix
             backend:
               service:
                 name: tipc-backend-service
                 port: 
                   number: 80
-          - path: /tipc
+          - path: /tipc/biplatform
             pathType: Prefix
             backend:
               service:
                 name: tipc-frontend-service
                 port: 
-                  number: 80
+                  number: 8080
+
               
           
                   
