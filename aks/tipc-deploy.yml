@@ -27,7 +27,7 @@ metadata:
   name: tipc-frontend
   namespace: tipc
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: tipc-frontend
