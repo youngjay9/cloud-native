@@ -16,13 +16,13 @@ spec:
                 name: tipc-backend-service
                 port: 
                   number: 80
-          - path: /tipc/biplatform
+          - path: /tipc-frontend/biplatform
             pathType: Prefix
             backend:
               service:
                 name: tipc-frontend-service
                 port: 
-                  number: 8080
+                  number: 80
 
               
           

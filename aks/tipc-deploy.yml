@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: tipc-backend
-        image: youngjay9/tipc:0.0.8-SNAPSHOT
+        image: youngjay9/tipc:202307241517
         ports:
         - containerPort: 8083
       imagePullSecrets:
@@ -38,7 +38,7 @@ spec:
     spec:
       containers:
       - name: tipc-frontend
-        image: youngjay9/tipc-frontend:202307251049
+        image: youngjay9/tipc-frontend:202307252319
         ports:
         - containerPort: 8080
       imagePullSecrets:
