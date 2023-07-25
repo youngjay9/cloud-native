@@ -16,7 +16,7 @@ spec:
                 name: tipc-backend-service
                 port: 
                   number: 80
-          - path: /tipc//biplatform/
+          - path: /tipc/biplatform/
             pathType: Exact
             backend:
               service:
