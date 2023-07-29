@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: tipc-backend
-        image: acrfortipc.azurecr.io/tipc/tipc-backend:2023-07-29_15-26-09
+        image: acrfortipc.azurecr.io/tipc/tipc-backend:dev
         imagePullPolicy: Always
         ports:
         - containerPort: 8083
