@@ -15,11 +15,12 @@ spec:
     spec:
       containers:
       - name: tipc-backend
-        image: youngjay9/tipc:202307241517
+        image: acrfortipc.azurecr.io/tipc/tipc-backend:2023-07-29_15-26-09
+        imagePullPolicy: Always
         ports:
         - containerPort: 8083
       imagePullSecrets:
-      - name: regcred
+      - name: acrfortipc-secret
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -38,8 +39,9 @@ spec:
     spec:
       containers:
       - name: tipc-frontend
-        image: youngjay9/tipc-frontend:202307261041
+        image: acrfortipc.azurecr.io/tipc/tipc-frontend:2023-07-29_12-07-28
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
       imagePullSecrets:
-      - name: regcred
+      - name: acrfortipc-secret
