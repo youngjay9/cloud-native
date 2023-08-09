@@ -23,6 +23,20 @@ spec:
                 name: tipc-frontend-service
                 port: 
                   number: 80
+          - path: /category
+            pathType: Prefix
+            backend:
+              service:
+                name: category-service
+                port: 
+                  number: 80
+          - path: /temp-api
+            pathType: Prefix
+            backend:
+              service:
+                name: temp-service
+                port: 
+                  number: 80
 
               
           

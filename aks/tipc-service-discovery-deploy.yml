@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: category-app
+  namespace: tipc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: category-app
+  template:
+    metadata:
+      labels:
+        app: category-app
+    spec:
+      containers:
+      - name: category-app
+        image: acrfortipc.azurecr.io/tipc/category-app:1.1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: acrfortipc-secret
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: temp-app
+  namespace: tipc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: temp-app
+  template:
+    metadata:
+      labels:
+        app: temp-app
+    spec:
+      containers:
+      - name: temp-app
+        image: acrfortipc.azurecr.io/tipc/temp-app:1.1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: acrfortipc-secret
