@@ -23,6 +23,13 @@ spec:
                 name: tipc-frontend-service
                 port: 
                   number: 80
+          - path: /frontend/gis
+            pathType: Prefix
+            backend:
+              service:
+                name: tipc-gis-service
+                port: 
+                  number: 80
           - path: /category
             pathType: Prefix
             backend:

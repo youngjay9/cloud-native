@@ -45,3 +45,28 @@ spec:
         - containerPort: 8080
       imagePullSecrets:
       - name: acrfortipc-secret
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tipc-gis
+  namespace: tipc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tipc-gis
+  template:
+    metadata:
+      labels:
+        app: tipc-gis
+    spec:
+      containers:
+      - name: tipc-gis
+        image: acrfortipc.azurecr.io/tipc/tipc-gis:2023-11-03_23-53-16
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8081
+      imagePullSecrets:
+      - name: acrfortipc-secret     
