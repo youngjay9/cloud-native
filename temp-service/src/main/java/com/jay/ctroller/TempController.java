@@ -23,7 +23,7 @@ public class TempController {
 
     String result = restTemplate
         .getForObject(
-            "http://category-service.study-ingress.svc.cluster.local/category/getCategory",
+            "http://category-service.tipc.svc.cluster.local/category/getCategory",
             String.class);
 
     return result;

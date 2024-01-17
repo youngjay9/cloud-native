@@ -1,0 +1,19 @@
+server:
+  port: 9001
+  # Tomcat 相關設定
+  tomcat:
+    # 定義 Tomcat 在接受來自客戶端的 TCP 連線和實際接收 HTTP 請求之間應等待的時間；
+    # 此設定可預防 DoS(Denial-of-Service)拒絕服務攻擊：
+    # Client 連線已建立，Tomcat 保留一個線程來處理請求，但請求永遠不會到來
+    # 此設定也可用來限制 Http Request 讀取時間
+    connection-timeout: 2s
+    # 定義 Tomcat 在等待新的 Http 請求時，保持連線的時間
+    keep-alive-timeout: 15s
+
+
+    # 因為 Tomcat 是 thread-per-request model，可用的線程數量將決定可以同時處理多少個請求
+    threads:
+      # 定義 Tomcat Thread pool： 處理執行緒的最大數量
+      max: 50
+      # 定義 Tomcat Thread pool： 始終保持運行的最小執行緒數量
+      min-spare: 5

@@ -22,7 +22,7 @@ public class CatagoryController {
     RestTemplate restTemplate = new RestTemplate();
 
     String result = restTemplate
-        .getForObject("http://temp-service.study-ingress.svc.cluster.local/temp-api/getPath",
+        .getForObject("http://temp-service.tipc.svc.cluster.local/temp-api/getPath",
             String.class);
 
     return result;
